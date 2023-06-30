@@ -68,7 +68,6 @@ public class Lulupage {
 		HttpURLConnection con=(HttpURLConnection)u.openConnection();
 		con.connect();
 		int res=con.getResponseCode();
-		System.out.println(res);
 		int actualres=200;
 		Assert.assertEquals(actualres, res);
 		System.out.println("Response code is verified");
