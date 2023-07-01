@@ -1,22 +1,20 @@
 package page;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.time.Duration;
 
+
+import java.time.Duration;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+
 
 public class Lulupage {
 	WebDriver driver;
 	String burl="https://www.luluhypermarket.in/en-in";
-	
+	public String k;
 	By log=By.xpath("//*[@id=\"header\"]/section/div/div/div[4]/ul/li[3]/a/span/b");
 	By email=By.xpath("//*[@id=\"emailAddress\"]");
 	By pass=By.xpath("//*[@id=\"j_password\"]");
@@ -64,14 +62,8 @@ public class Lulupage {
 	public void flipresponse() throws Exception
 	{
 		driver.manage().window().maximize();
-		URL u=new URL(burl);
-		HttpURLConnection con=(HttpURLConnection)u.openConnection();
-		con.connect();
-		int res=con.getResponseCode();
-		int actualres=200;
-		Assert.assertEquals(actualres, res);
-		System.out.println("Response code is verified");
-		}
+	
+	}
 	public void logclick()
 	{
 		driver.findElement(log).click();
@@ -86,14 +78,6 @@ public class Lulupage {
 		driver.findElement(signin).click();
 	}
 	
-	public void logverify()
-	{
-		String ex="HomePage - LuLu Hypermarket India";
-		String act=driver.getTitle();
-		Assert.assertEquals(act, ex);
-		System.out.println("Login Verified");
-		
-	}
 	public void phclick()
 	{
 		driver.findElement(Phone).click();
@@ -122,11 +106,9 @@ public class Lulupage {
 	{
 		
 		driver.findElement(cart).click();
-		String s1="https://www.luluhypermarket.in/en-in/samsung-m53-8gb-128gb-mystique-green/p/1482932";
-		String s=driver.findElement(phnname1).getAttribute("href");
-		Assert.assertEquals(s1, s);
-		System.out.println("Item added to the cart");
-		}
+		WebElement l=driver.findElement(phnname1);
+		k=l.getAttribute("href");
+	}
 	
 	public void checkclick()
 	{
